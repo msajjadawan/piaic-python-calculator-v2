@@ -25,7 +25,7 @@ def divide(a, b):
 def modulus(x, y):
     return x % y
 
-def exponentiate(x, y):
+def exponential(x, y):
     return x ** y
 
 def square(x):
@@ -40,7 +40,7 @@ def cube(x):
     return x ** 3
 
 def cube_root(x):
-    return x ** (1/3)
+    return round(x ** (1/3), 2) 
 
 def absolute_value(x):
     return abs(x)
@@ -48,7 +48,7 @@ def absolute_value(x):
 def factorial(x):
     if x < 0:
         return "Error: Negative number"
-    return math.factorial(x)
+    return math.factorial(int(x))
 
 def power_of_ten(x):
     return 10 ** x
@@ -78,9 +78,11 @@ def calculator():
 
         if choice == 99:
             break
-
-        num1 = float(input("Enter first number: "))
-        num2 = float(input("Enter second number: "))
+        if choice in [1, 2, 3, 4, 6, 7 ]:
+            num1 = float(input("Enter first number: "))       
+            num2 = float(input("Enter second number: "))
+        else:
+            num1 = float(input("Enter your number: "))
 
         if choice == 1:
             result = add(num1, num2)
@@ -101,7 +103,7 @@ def calculator():
             result = modulus(num1, num2)
             print(f"Result: {result}")
         elif choice == 7:
-            result = exponentiate(num1, num2)
+            result = exponential(num1, num2)
             print(f"Result: {result}")
         elif choice == 8:
             result = square(num1)
